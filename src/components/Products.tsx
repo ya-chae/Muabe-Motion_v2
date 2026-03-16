@@ -12,61 +12,66 @@ const Products: React.FC = () => {
 
   return (
     <section id="products" className="section-padding overflow-hidden">
-      <div className="container-custom space-y-48 md:space-y-80">
+      <div className="space-y-48 md:space-y-80">
         
         {/* Muabe AI Studio Product Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-          {/* Text Column */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex flex-col pt-4 lg:pt-0"
-          >
-            <p className="label-text mb-8">Web Tool</p>
-            <h3 className="h2-section mb-6 text-text-1">Muabe AI Studio</h3>
-            <p className="h3-card text-text-2 mb-10 leading-tight break-keep">
-              웹 기반 AI <br className="block md:hidden" /> 인터랙션 콘텐츠 제작툴
-            </p>
-            <p className="section-lead text-text-3 mb-16 lg:mb-40 max-w-[42ch] break-keep">
-              AI로 영상·음성·인터랙션까지 <br /> 한 번에 제작하세요.
-            </p>
-            
-            <div className="inline-flex items-center gap-5 px-10 py-5 bg-accent/10 border border-accent/20 rounded-full w-fit">
-              <span className="w-3 h-3 rounded-full bg-accent animate-pulse"></span>
-              <span className="text-[15px] lg:text-[18px] font-black text-accent tracking-[0.25em] uppercase">Coming Soon</span>
-            </div>
-          </motion.div>
-
-          {/* Video Column */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 w-full flex justify-center lg:justify-end mt-12 lg:mt-0"
-          >
-            <div className="relative group w-full max-w-[1100px]">
-              <div className="relative overflow-visible transition-all duration-700">
-                <div className="rounded-2xl overflow-hidden drop-shadow-[0_60px_160px_rgba(0,0,0,0.95)]">
-                  <video 
-                    src={graphyVideoUrl}
-                    className="w-full h-auto object-cover opacity-85 transition-all duration-700 group-hover:opacity-100"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-[1400px] px-6 lg:px-[60px] xl:pr-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 xl:gap-0 items-center">
+              {/* Text Column */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="lg:col-span-5 flex flex-col pt-4 lg:pt-0 lg:pr-8 xl:pr-12"
+              >
+                <p className="label-text mb-8">Web Tool</p>
+                <h3 className="h2-section mb-6 text-text-1">Muabe AI Studio</h3>
+                <p className="text-[18px] md:text-[21px] lg:text-[24px] font-bold text-text-2 mb-8 leading-tight break-keep">
+                  웹 기반 AI <br className="block md:hidden" /> 인터랙티브 콘텐츠 제작툴
+                </p>
+                <p className="text-[15px] md:text-[18px] lg:text-[20px] text-text-3 mb-16 lg:mb-40 max-w-[42ch] break-keep leading-relaxed">
+                  정적 콘텐츠를 인터랙티브 영상으로 <br /> 즉시 제작할 수 있습니다.
+                </p>
+                
+                <div className="inline-flex items-center gap-5 px-10 py-5 bg-accent/10 border border-accent/20 rounded-full w-fit">
+                  <span className="w-3 h-3 rounded-full bg-accent animate-pulse"></span>
+                  <span className="text-[15px] lg:text-[18px] font-black text-accent tracking-[0.25em] uppercase">Coming Soon</span>
                 </div>
-                <div className="absolute -inset-32 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none blur-[160px] -z-10 rounded-full"></div>
-              </div>
+              </motion.div>
+
+              {/* Video Column */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="lg:col-span-7 w-full flex justify-center lg:justify-end mt-12 lg:mt-0 2xl:mr-[-20vw]"
+              >
+                <div className="relative group w-full">
+                  <div className="relative overflow-visible transition-all duration-700">
+                    <div className="rounded-2xl overflow-hidden drop-shadow-[0_60px_160px_rgba(0,0,0,0.95)] aspect-video">
+                      <video 
+                        src={graphyVideoUrl}
+                        className="w-full h-full object-cover opacity-85 transition-all duration-700 group-hover:opacity-100"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      />
+                    </div>
+                    <div className="absolute -inset-32 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none blur-[160px] -z-10 rounded-full"></div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Vibble Product Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* Video Column */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -105,12 +110,12 @@ const Products: React.FC = () => {
           >
             <p className="label-text mb-8">Mobile App</p>
             <h3 className="h2-section mb-6 text-text-1">Vibble</h3>
-            <p className="h3-card text-text-2 mb-10 leading-tight break-keep">
+            <p className="text-[18px] md:text-[21px] lg:text-[24px] font-bold text-text-2 mb-8 leading-tight break-keep">
               모바일 인터랙티브 <br className="block md:hidden" /> 숏폼 플랫폼
             </p>
-            <p className="section-lead text-text-3 mb-16 lg:mb-48 max-w-[42ch] break-keep">
-              영상 속 요소와 실시간으로 상호작용하며 <br />
-              새로운 숏폼을 즐기세요.
+            <p className="text-[15px] md:text-[18px] lg:text-[20px] text-text-3 mb-16 lg:mb-48 max-w-[42ch] break-keep leading-relaxed">
+              영상 속 요소와 실시간으로 <br />
+              상호작용이 가능한 참여형 숏폼을 제공합니다.
             </p>
             
             <div className="flex flex-nowrap md:flex-wrap gap-4 md:gap-6">
@@ -149,9 +154,9 @@ const Products: React.FC = () => {
             </div>
           </motion.div>
         </div>
-
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

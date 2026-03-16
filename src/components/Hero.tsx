@@ -51,13 +51,13 @@ export const Hero: React.FC = () => {
           
           <h1 className="h1-hero text-text-1 mb-8 md:mb-12 break-keep drop-shadow-lg">
             <span className="block mb-2 md:mb-0">Any Content</span>
-            <span className="md:whitespace-nowrap">Now Interactive</span>
+            <span className="lg:whitespace-nowrap">Now Interactive<span className="text-accent">.</span></span>
             <div className="mt-8 md:mt-10 h-[4px] md:h-[5px] w-[60px] md:w-[100px] bg-accent"></div>
           </h1>
 
           <div className="max-w-[62ch]">
             <p className="section-lead !text-text-1 break-keep drop-shadow-md">
-              쿼크모션은 AI 인터랙션 엔진 Quark로 <br className="hidden md:block" />
+              무아베모션은 AI 인터랙션 엔진 Quark로 <br className="hidden md:block" />
               모든 콘텐츠에 즉시 상호작용을 더합니다.
             </p>
           </div>

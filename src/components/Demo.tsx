@@ -53,7 +53,7 @@ const Demo: React.FC = () => {
         className="mb-20"
       >
         <h2 className="h2-section">
-          QUARK, <br className="md:hidden" /> <span className="text-accent italic font-black">DEMO REEL</span>
+          Quark, <br className="md:hidden" /> <span className="text-accent italic font-black">DEMO REEL</span>
         </h2>
       </motion.div>
 
@@ -74,8 +74,8 @@ const Demo: React.FC = () => {
               className="w-full h-full object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-0 via-transparent to-transparent flex flex-col justify-end p-10 lg:p-14">
-              <p className="caption-text mb-4 text-accent font-black uppercase tracking-[0.2em]">{demo.title}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-0 via-transparent to-transparent flex flex-col justify-end p-6 md:p-8 lg:p-12 xl:p-14">
+              <p className="caption-text mb-2 md:mb-3 text-accent font-black uppercase tracking-[0.2em]">{demo.title}</p>
               <h4 className="h3-card text-text-1 group-hover:text-white transition-colors break-keep">{demo.subtitle}</h4>
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-bg-0/30">

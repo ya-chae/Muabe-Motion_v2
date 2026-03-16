@@ -6,10 +6,10 @@ export const Footer = () => {
           <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
             <div className="w-3 h-3 border-2 border-bg-0 rounded-full" />
           </div>
-          <span className="font-black tracking-tighter text-lg">quarkmotion</span>
+          <span className="font-black tracking-tighter text-lg">muabemotion</span>
         </div>
         <p className="text-text-3 text-sm">
-          © 2026 QuarkMotion. All rights reserved.
+          © 2026 MuabeMotion. All rights reserved.
         </p>
       </div>
     </footer>

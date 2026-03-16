@@ -5,7 +5,7 @@ import { Cpu, Smartphone, MousePointer2, Share2, Building2 } from 'lucide-react'
 const Architecture: React.FC = () => {
   const quadrantItems = [
     { title: "Vibble", desc: "모바일 인터랙티브 서비스", Icon: Smartphone },
-    { title: "Muabe AI Studio", desc: "웹 기반 AI 인터랙션 콘텐츠 제작툴", Icon: MousePointer2 },
+    { title: "Muabe AI Studio", desc: "웹 기반 AI 인터랙티브 콘텐츠 제작툴", Icon: MousePointer2 },
     { title: "Partners", desc: "IP·채널·플랫폼 연동", Icon: Share2 },
     { title: "Enterprise", desc: "맞춤형 콘텐츠 설계·제작", Icon: Building2 },
   ];
@@ -45,7 +45,7 @@ const Architecture: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="
-              hidden md:block relative 
+              hidden lg:block relative 
               min-h-[520px] 
               bg-white/[0.04] border border-white/10 
               rounded-[64px] overflow-hidden
@@ -72,7 +72,7 @@ const Architecture: React.FC = () => {
                   shadow-[inset_0_0_40px_rgba(255,255,255,0.05)]
                 ">
                   <Cpu className="text-accent mb-6" size={48} />
-                  <span className="text-[32px] lg:text-[42px] font-black text-text-1 tracking-tighter uppercase mb-1">QUARK</span>
+                  <span className="text-[32px] lg:text-[42px] font-black text-text-1 tracking-tighter mb-1">Quark</span>
                   <span className="text-[14px] lg:text-[16px] text-text-3 font-bold uppercase tracking-[0.4em] opacity-80">CORE ENGINE</span>
                 </div>
               </div>
@@ -103,23 +103,23 @@ const Architecture: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Mobile Architecture */}
+          {/* Mobile & Tablet Architecture */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:hidden space-y-4"
+            className="lg:hidden space-y-4"
           >
             <div className="bg-white/5 border border-white/10 p-12 flex flex-col items-center text-center rounded-[48px] mb-8">
                <Cpu className="text-accent mb-4" size={40} />
-               <h4 className="text-[24px] font-black tracking-tighter uppercase">QUARK CORE</h4>
+               <h4 className="text-[24px] font-black tracking-tighter">Quark CORE</h4>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {quadrantItems.map((item, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-[32px]">
-                  <item.Icon className="text-accent/60 mb-3" size={20} />
-                  <h5 className="font-bold text-text-1 mb-1">{item.title}</h5>
-                  <p className="text-[13px] text-text-3">{item.desc}</p>
+                <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[40px] flex flex-col items-center text-center">
+                  <item.Icon className="text-accent/60 mb-4" size={28} />
+                  <h5 className="text-[20px] font-bold text-text-1 mb-2">{item.title}</h5>
+                  <p className="text-[15px] text-text-3 break-keep">{item.desc}</p>
                 </div>
               ))}
             </div>

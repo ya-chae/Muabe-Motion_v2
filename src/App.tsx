@@ -62,7 +62,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <Navbar activeSection={activeSection} onSetActiveSection={setActiveSection} />
       <main>
         <Hero />

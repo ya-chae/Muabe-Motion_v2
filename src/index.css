@@ -28,7 +28,7 @@
   }
 
   .h1-hero {
-    @apply text-[56px] md:text-[90px] lg:text-[110px] xl:text-[124px] font-black leading-[1.05] tracking-[-0.04em];
+    @apply text-[48px] md:text-[80px] lg:text-[100px] xl:text-[124px] font-black leading-[1.05] tracking-[-0.04em];
   }
 
   .h2-section {
@@ -36,7 +36,7 @@
   }
 
   .h3-card {
-    @apply text-[24px] md:text-[32px] font-extrabold leading-[1.25] tracking-[-0.02em];
+    @apply text-[18px] md:text-[22px] lg:text-[28px] xl:text-[32px] font-extrabold leading-[1.2] tracking-[-0.03em];
   }
 
   .section-padding {
