@@ -1,0 +1,132 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
+
+interface NavbarProps {
+  activeSection: string;
+  onSetActiveSection: (id: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ activeSection, onSetActiveSection }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Initial mount reveal
+    setTimeout(() => setIsVisible(true), 100);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: 'Technology', id: 'technology' },
+    { name: 'Demo', id: 'demo' },
+    { name: 'Products', id: 'products' },
+    { name: 'Contact', id: 'contact' },
+  ];
+
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+      onSetActiveSection(id);
+    }
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (itemId: string) => {
+    if (activeSection === itemId) return true;
+    // 서브 섹션 매핑: 사용자가 해당 영역에 있을 때 상위 메뉴가 활성화되도록 함
+    if (itemId === 'demo' && activeSection === 'architecture') return true;
+    if (itemId === 'products' && activeSection === 'industries') return true;
+    return false;
+  };
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 transition-all duration-700 ease-out
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0'}
+      `}
+    >
+      <nav 
+        className={`
+          flex items-center justify-between px-6 md:px-10 transition-all duration-500 rounded-full border w-full max-w-[1000px] py-3.5 md:py-4
+          ${isScrolled 
+            ? 'bg-bg-0/90 backdrop-blur-2xl border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.5)] scale-[0.98] md:scale-100' 
+            : 'bg-white/5 backdrop-blur-lg border-white/10'}
+        `}
+      >
+        <div 
+          className="cursor-pointer transition-all duration-300 hover:opacity-80 active:scale-95 flex items-center shrink-0"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <Logo size="custom" variant="horizontal" />
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-10">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className={`relative text-[16px] tracking-[0.15em] uppercase transition-all duration-300 font-black px-1 group flex flex-col items-center
+                ${isActive(item.id) ? 'text-accent' : 'text-text-1/70 hover:text-text-1'}
+              `}
+            >
+              {item.name}
+              <span className={`
+                absolute -bottom-2 w-1.5 h-1.5 rounded-full bg-accent transition-all duration-300
+                ${isActive(item.id) ? 'opacity-100 scale-100 shadow-[0_0_12px_rgba(255,59,77,1)]' : 'opacity-0 scale-0 group-hover:opacity-40 group-hover:scale-100'}
+              `} />
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Toggle */}
+        <button 
+          className="lg:hidden w-10 h-10 flex items-center justify-center text-text-1 transition-all duration-300 hover:text-accent"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`
+          lg:hidden absolute top-[90px] left-6 right-6 bg-bg-0/98 backdrop-blur-3xl border border-white/10 rounded-[32px] overflow-hidden transition-all duration-500 ease-in-out shadow-2xl
+          ${isMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}
+        `}
+      >
+        <div className="px-8 py-10 flex flex-col gap-6">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className={`
+                flex items-center text-[16px] tracking-[0.15em] uppercase transition-all duration-300 font-black text-left
+                ${isActive(item.id) ? 'text-accent' : 'text-text-1/50'}
+              `}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;

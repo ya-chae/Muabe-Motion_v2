@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-0: #0B0B0D;
+  --color-bg-1: #101014;
+  --color-surface: #141419;
+  --color-accent: #FF3B4D;
+  --color-accent-deep: #B8142A;
+  --color-text-1: #F3F4F6;
+  --color-text-2: #A1A1AA;
+  --color-text-3: #71717A;
+  --color-border-subtle: rgba(255,255,255,0.08);
+  
+  --font-sans: "Inter", "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-0 text-text-1 antialiased selection:bg-accent selection:text-white;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-[1400px] mx-auto px-6 lg:px-[60px];
+  }
+
+  .h1-hero {
+    @apply text-[56px] md:text-[90px] lg:text-[110px] xl:text-[124px] font-black leading-[1.05] tracking-[-0.04em];
+  }
+
+  .h2-section {
+    @apply text-[38px] md:text-[54px] lg:text-[72px] font-black leading-[1.1] tracking-[-0.03em];
+  }
+
+  .h3-card {
+    @apply text-[24px] md:text-[32px] font-extrabold leading-[1.25] tracking-[-0.02em];
+  }
+
+  .section-padding {
+    @apply py-[100px] lg:py-[160px];
+  }
+
+  .section-lead {
+    @apply text-[16px] md:text-[21px] lg:text-[26px] leading-[1.5] md:leading-[1.45] lg:leading-[1.4] text-text-2 font-medium tracking-[-0.01em];
+  }
+
+  .label-text {
+    @apply text-[13px] font-extrabold tracking-[0.4em] text-accent uppercase;
+  }
+
+  .body-text {
+    @apply text-[16px] md:text-[18px] leading-[1.7] text-text-2;
+  }
+
+  .caption-text {
+    @apply text-[12px] font-bold tracking-[0.1em] uppercase text-text-3;
+  }
+
+  .transition-base {
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF3B4D;
+}
+
+/* Ambient Orb */
+.ambient-orb {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 59, 77, 0.12) 0%, rgba(255, 59, 77, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
